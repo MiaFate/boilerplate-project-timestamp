@@ -26,6 +26,7 @@ app.get("/api/hello", function(req, res) {
 
 app.get("/api/:date?", function(req, res) {
   const date = req.params.date || ""
+  //the first if is not really important
   if (date.length === 10) {
     const utc = new Date(date).toUTCString()
     const unix = Number(new Date(date).getTime())
