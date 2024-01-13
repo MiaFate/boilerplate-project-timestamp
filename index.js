@@ -40,7 +40,9 @@ app.get("/api/:date?", function(req, res) {
     const unix = Number(time.getTime())
     utc === "Invalid Date" ? res.json({ error: utc }) : res.json({ utc, unix })
   } else {
-    res.json({ error: "Invalid Date" })
+    const utc = new Date(date).toUTCString()
+    const unix = Number(new Date(date).getTime())
+    utc === "Invalid Date" ? res.json({ error: utc }) : res.json({ utc, unix })
   }
 })
 
